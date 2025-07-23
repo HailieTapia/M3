@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import pandas as pd
 import logging
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
+CORS(app)  # Permitir solicitudes desde cualquier origen
 
 # Configuración avanzada del logging
 logging.basicConfig(level=logging.INFO)
@@ -43,31 +45,41 @@ def health_check():
 @app.route('/recommend', methods=['POST'])
 def recommend():
     """
-    Endpoint para obtener recomendaciones de productos basadas en el carrito
-    Recibe: {'cart': ['Producto1', 'Producto2', ...]}
-    Devuelve: {'cart': List[str], 'recommendations': List[str], 'count': int, 'success': bool}
+    Endpoint para obtener recomendaciones de productos basadas en un producto o carrito
+    Recibe: {'product': str} o {'cart': List[str]}
+    Devuelve: {'success': bool, 'input': str|List[str], 'recommendations': List[str], 'message': str}
     """
     try:
-        # Obtener los productos del carrito
+        # Obtener los datos del cuerpo de la solicitud
         request_data = request.get_json()
-        if not request_data or 'cart' not in request_data:
-            app.logger.warning("Solicitud sin datos o sin campo 'cart'")
+        if not request_data or ('product' not in request_data and 'cart' not in request_data):
+            app.logger.warning("Solicitud sin datos o sin campo 'product' o 'cart'")
             return jsonify({
                 'success': False,
-                'error': "El campo 'cart' es requerido",
-                'recommendations': []
+                'error': "Se requiere el campo 'product' o 'cart'",
+                'recommendations': [],
+                'message': "Solicitud inválida"
             }), 400
         
-        cart = request_data['cart']
-        if not isinstance(cart, list):
-            app.logger.warning("El campo 'cart' debe ser una lista")
+        # Determinar si se envió un solo producto o un carrito
+        if 'product' in request_data:
+            input_data = [request_data['product']]  # Convertir producto en lista
+            input_type = 'product'
+        else:
+            input_data = request_data['cart']
+            input_type = 'cart'
+        
+        # Validar que input_data sea una lista válida
+        if not isinstance(input_data, list) or not all(isinstance(p, str) for p in input_data):
+            app.logger.warning(f"El campo '{input_type}' debe ser una lista de strings")
             return jsonify({
                 'success': False,
-                'error': "El campo 'cart' debe ser una lista de productos",
-                'recommendations': []
+                'error': f"El campo '{input_type}' debe ser una lista de productos",
+                'recommendations': [],
+                'message': "Formato de entrada inválido"
             }), 400
         
-        app.logger.info(f"Solicitud de recomendación para el carrito: {cart}")
+        app.logger.info(f"Solicitud de recomendación para {input_type}: {input_data}")
         
         # Verificar si el modelo está cargado
         if rules is None or rules.empty:
@@ -75,42 +87,39 @@ def recommend():
             return jsonify({
                 'success': False,
                 'error': "El sistema de recomendación no está disponible",
-                'recommendations': []
+                'recommendations': [],
+                'message': "Modelo no disponible"
             }), 503
         
-        # Convertir el carrito en un conjunto para comparación
-        cart_set = set(cart)
+        # Convertir los productos en un conjunto para comparación
+        input_set = set(p.strip() for p in input_data)
         
-        # Buscar reglas donde los antecedentes sean un subconjunto del carrito
-        matching_rules = rules[rules['antecedents'].apply(lambda x: x.issubset(cart_set))]
-        app.logger.info(f"Reglas encontradas para el carrito: {len(matching_rules)}")
+        # Buscar reglas donde los antecedentes sean un subconjunto del input
+        matching_rules = rules[rules['antecedents'].apply(lambda x: x.issubset(input_set))]
+        app.logger.info(f"Reglas encontradas para {input_type} {input_data}: {len(matching_rules)}")
         
-        if matching_rules.empty:
-            app.logger.info(f"No se encontraron reglas para el carrito: {cart}")
-            return jsonify({
-                'success': True,
-                'cart': cart,
-                'recommendations': [],
-                'count': 0,
-                'message': f"No se encontraron recomendaciones para el carrito {cart}"
-            })
+        # Obtener recomendaciones
+        recommendations = set()
+        for cons in matching_rules['consequents']:
+            recommendations.update(set(c.strip() for c in cons if c.strip() not in input_set))
         
-        # Filtrar reglas por confianza y lift para obtener recomendaciones más relevantes
-        matching_rules = matching_rules[matching_rules['confidence'] >= 0.5]
-        matching_rules = matching_rules[matching_rules['lift'] > 1.2]
+        # Si no hay recomendaciones, usar productos populares como respaldo
+        if not recommendations:
+            app.logger.info(f"No se encontraron recomendaciones para {input_type}: {input_data}")
+            popular_products = ['Taza de Porcelana', 'USB Personalizado']  # Ajustar según datos reales
+            recommendations = set(p for p in popular_products if p not in input_set)
+            message = f"No se encontraron recomendaciones específicas para {input_type} {input_data}. Mostrando productos populares."
+        else:
+            message = f"Recomendaciones generadas para {input_type} {input_data}"
         
-        # Obtener recomendaciones y limpiar resultados
-        recommendations = matching_rules['consequents'].tolist()
-        flat_recommendations = list({item for sublist in recommendations for item in sublist if item not in cart_set})
-        
-        app.logger.info(f"Recomendaciones generadas para el carrito {cart}: {flat_recommendations}")
+        app.logger.info(f"Recomendaciones generadas: {recommendations}")
         
         return jsonify({
             'success': True,
-            'cart': cart,
-            'recommendations': flat_recommendations,
-            'count': len(flat_recommendations),
-            'rules_used': len(matching_rules)
+            'input': input_data,
+            'recommendations': sorted(recommendations),
+            'count': len(recommendations),
+            'message': message
         })
     
     except Exception as e:
@@ -118,9 +127,10 @@ def recommend():
         return jsonify({
             'success': False,
             'error': "Error interno al procesar la solicitud",
-            'recommendations': []
+            'recommendations': [],
+            'message': "Error en el servidor"
         }), 500
 
 if __name__ == '__main__':
     app.logger.info("Iniciando la aplicación Flask")
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
