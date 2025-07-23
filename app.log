@@ -1,13 +1,13 @@
-2025-07-23 07:00:27,311 - app - INFO - Modelo de reglas de asociación cargado correctamente
-2025-07-23 07:00:27,312 - app - INFO - Número de reglas cargadas: 244
-2025-07-23 07:00:27,313 - app - INFO - Iniciando la aplicación Flask
-2025-07-23 07:00:53,951 - app - INFO - Solicitud de recomendación para el producto: Reloj de Escritorio
+2025-07-23 07:00:27,311 - app - INFO - Modelo de reglas de asociaciï¿½n cargado correctamente
+2025-07-23 07:00:27,312 - app - INFO - Nï¿½mero de reglas cargadas: 244
+2025-07-23 07:00:27,313 - app - INFO - Iniciando la aplicaciï¿½n Flask
+2025-07-23 07:00:53,951 - app - INFO - Solicitud de recomendaciï¿½n para el producto: Reloj de Escritorio
 2025-07-23 07:00:53,954 - app - INFO - Reglas encontradas que contienen el producto: 5
 2025-07-23 07:00:53,955 - app - INFO - Recomendaciones generadas: ['USB Personalizado', 'Taza de Porcelana']
-2025-07-23 07:09:05,464 - app - INFO - Modelo de reglas de asociación cargado correctamente
-2025-07-23 07:09:05,464 - app - INFO - Número de reglas cargadas: 244
-2025-07-23 07:09:05,465 - app - INFO - Iniciando la aplicación Flask
-2025-07-23 07:09:20,894 - app - ERROR - Error en la generación de recomendaciones: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-07-23 07:09:05,464 - app - INFO - Modelo de reglas de asociaciï¿½n cargado correctamente
+2025-07-23 07:09:05,464 - app - INFO - Nï¿½mero de reglas cargadas: 244
+2025-07-23 07:09:05,465 - app - INFO - Iniciando la aplicaciï¿½n Flask
+2025-07-23 07:09:20,894 - app - ERROR - Error en la generaciï¿½n de recomendaciones: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
 Traceback (most recent call last):
   File "C:\Users\luis3\PRYFILOGRAFICOS\M3\app.py", line 52, in recommend
     request_data = request.get_json()
@@ -24,16 +24,16 @@ werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not at
 2025-07-23 07:11:37,751 - app - INFO - Modelo cargado. Reglas: 244
 2025-07-23 07:12:00,849 - app - INFO - Buscando recomendaciones para: Reloj de Escritorio
 2025-07-23 07:12:00,850 - app - ERROR - Error: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
-2025-07-23 07:12:26,311 - app - INFO - Modelo de reglas de asociación cargado correctamente
-2025-07-23 07:12:26,312 - app - INFO - Número de reglas cargadas: 244
-2025-07-23 07:12:26,313 - app - INFO - Iniciando la aplicación Flask
-2025-07-23 07:14:27,845 - app - INFO - Solicitud de recomendación para el producto: Reloj de Escritorio
+2025-07-23 07:12:26,311 - app - INFO - Modelo de reglas de asociaciï¿½n cargado correctamente
+2025-07-23 07:12:26,312 - app - INFO - Nï¿½mero de reglas cargadas: 244
+2025-07-23 07:12:26,313 - app - INFO - Iniciando la aplicaciï¿½n Flask
+2025-07-23 07:14:27,845 - app - INFO - Solicitud de recomendaciï¿½n para el producto: Reloj de Escritorio
 2025-07-23 07:14:27,849 - app - INFO - Reglas encontradas que contienen el producto: 5
 2025-07-23 07:14:27,849 - app - INFO - Recomendaciones generadas para Reloj de Escritorio: ['Taza de Porcelana', 'USB Personalizado']
-2025-07-23 07:24:13,484 - app - INFO - Modelo de reglas de asociación cargado correctamente
-2025-07-23 07:24:13,485 - app - INFO - Número de reglas cargadas: 244
-2025-07-23 07:24:13,486 - app - INFO - Iniciando la aplicación Flask
-2025-07-23 07:25:14,902 - app - ERROR - Error en la generación de recomendaciones: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-07-23 07:24:13,484 - app - INFO - Modelo de reglas de asociaciï¿½n cargado correctamente
+2025-07-23 07:24:13,485 - app - INFO - Nï¿½mero de reglas cargadas: 244
+2025-07-23 07:24:13,486 - app - INFO - Iniciando la aplicaciï¿½n Flask
+2025-07-23 07:25:14,902 - app - ERROR - Error en la generaciï¿½n de recomendaciones: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
 Traceback (most recent call last):
   File "C:\Users\luis3\PRYFILOGRAFICOS\M3\app.py", line 52, in recommend
     request_data = request.get_json()
@@ -47,18 +47,72 @@ Traceback (most recent call last):
   File "C:\Users\luis3\AppData\Roaming\Python\Python312\site-packages\werkzeug\wrappers\request.py", line 647, in on_json_loading_failed
     raise UnsupportedMediaType(
 werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
-2025-07-23 07:26:02,602 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
+2025-07-23 07:26:02,602 - app - INFO - Solicitud de recomendaciï¿½n para el producto: Playera Personalizada
 2025-07-23 07:26:02,649 - app - INFO - Reglas encontradas que contienen el producto: 2
 2025-07-23 07:26:02,650 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['USB Personalizado', 'Taza de Porcelana']
-2025-07-23 07:38:29,840 - app - INFO - Solicitud de recomendación para el producto: Super vivid led neon Pink Heart
+2025-07-23 07:38:29,840 - app - INFO - Solicitud de recomendaciï¿½n para el producto: Super vivid led neon Pink Heart
 2025-07-23 07:38:29,885 - app - INFO - Reglas encontradas que contienen el producto: 5
 2025-07-23 07:38:29,886 - app - INFO - Recomendaciones generadas para Super vivid led neon Pink Heart: ['USB Personalizado', 'Taza de Porcelana']
-2025-07-23 07:52:22,430 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
+2025-07-23 07:52:22,430 - app - INFO - Solicitud de recomendaciï¿½n para el producto: Playera Personalizada
 2025-07-23 07:52:22,450 - app - INFO - Reglas encontradas que contienen el producto: 2
 2025-07-23 07:52:22,451 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['USB Personalizado', 'Taza de Porcelana']
-2025-07-23 08:28:32,832 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
+2025-07-23 08:28:32,832 - app - INFO - Solicitud de recomendaciï¿½n para el producto: Playera Personalizada
 2025-07-23 08:28:32,904 - app - INFO - Reglas encontradas que contienen el producto: 2
 2025-07-23 08:28:32,908 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['USB Personalizado', 'Taza de Porcelana']
-2025-07-23 08:31:10,680 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
+2025-07-23 08:31:10,680 - app - INFO - Solicitud de recomendaciï¿½n para el producto: Playera Personalizada
 2025-07-23 08:31:10,692 - app - INFO - Reglas encontradas que contienen el producto: 2
 2025-07-23 08:31:10,693 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['USB Personalizado', 'Taza de Porcelana']
+2025-07-23 09:03:12,432 - app - INFO - Modelo de reglas de asociación cargado correctamente
+2025-07-23 09:03:12,433 - app - INFO - Número de reglas cargadas: 244
+2025-07-23 09:03:12,434 - app - INFO - Iniciando la aplicación Flask
+2025-07-23 09:03:57,320 - app - INFO - Solicitud de recomendación para el producto: Taza de Porcelana
+2025-07-23 09:03:57,337 - app - INFO - Reglas encontradas que contienen el producto: 109
+2025-07-23 09:03:57,338 - app - INFO - Recomendaciones generadas para Taza de Porcelana: ['Set de Café Premium', 'Taza con Meme', 'Agenda Ejecutiva', 'Super Vivid Led Neon Rayo', 'Botella Smart', 'Llavero Promocional', 'Escultura de Cristal', 'Libreta Ejecutiva', 'Reloj de Pared Corporativo', 'Disco Duro Portátil Indestructible', 'Set de Vinos', 'Caja magica multiples capas', 'Edición de Fotografías Digitales', 'Libreta Ecológica Bambú', 'Bolígrafo Espacial Anti-Gravedad', 'Diseño e Impresión de Tarjetas de Presentación', 'Playera Básica Algodón', 'Set de Té', 'Super vivid led neon Pink Heart', 'Bufanda Promocional', 'Taza de Viaje', 'Lampara de Acrilico Baby Yoda', 'Conejo de Pascua MDF color rosa', 'Taza Clásica Negra', 'Taza Fotográfica', 'Set de Oficina Portátil', 'Playera Vintage', 'Reloj de Escritorio', 'Termo Vacío', 'Lámpara Elegante', 'Soporte para Teléfono', 'Cofre de Regalo', 'Juego Didáctico de Ensamble', 'Llavero Multifunción Táctico', 'Tarjetas de Presentación Digitales', 'Playera Personalizada', 'Diploma de Reconocimiento', 'USB Personalizado', 'Playera Cuello V', 'Cuaderno Profesional', 'Playera STYLE and TENDENCIA Ave', 'Lapicero Ejecutivo Plata', 'Restauración de Fotografías']
+2025-07-23 09:04:18,788 - app - INFO - Solicitud de recomendación para el producto: Super vivid led neon Pink Heart
+2025-07-23 09:04:18,789 - app - INFO - Reglas encontradas que contienen el producto: 5
+2025-07-23 09:04:18,789 - app - INFO - Recomendaciones generadas para Super vivid led neon Pink Heart: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:04:24,906 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
+2025-07-23 09:04:24,908 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 09:04:24,909 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:04:30,524 - app - INFO - Solicitud de recomendación para el producto: Taza de Cerámica Artesanal
+2025-07-23 09:04:30,526 - app - INFO - Reglas encontradas que contienen el producto: 0
+2025-07-23 09:04:30,526 - app - INFO - No se encontraron reglas para el producto: Taza de Cerámica Artesanal
+2025-07-23 09:04:35,351 - app - INFO - Solicitud de recomendación para el producto: Caja de Regalo Ejecutiva
+2025-07-23 09:04:35,352 - app - INFO - Reglas encontradas que contienen el producto: 0
+2025-07-23 09:04:35,352 - app - INFO - No se encontraron reglas para el producto: Caja de Regalo Ejecutiva
+2025-07-23 09:04:40,830 - app - INFO - Solicitud de recomendación para el producto: Tarjeta de Presentación Minimalista
+2025-07-23 09:04:40,831 - app - INFO - Reglas encontradas que contienen el producto: 0
+2025-07-23 09:04:40,831 - app - INFO - No se encontraron reglas para el producto: Tarjeta de Presentación Minimalista
+2025-07-23 09:04:45,090 - app - INFO - Solicitud de recomendación para el producto: Guirnalda Evento
+2025-07-23 09:04:45,091 - app - INFO - Reglas encontradas que contienen el producto: 0
+2025-07-23 09:04:45,091 - app - INFO - No se encontraron reglas para el producto: Guirnalda Evento
+2025-07-23 09:04:51,647 - app - INFO - Solicitud de recomendación para el producto: Cuaderno Profesional
+2025-07-23 09:04:51,648 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 09:04:51,649 - app - INFO - Recomendaciones generadas para Cuaderno Profesional: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:04:56,733 - app - INFO - Solicitud de recomendación para el producto: Reloj de Escritorio
+2025-07-23 09:04:56,734 - app - INFO - Reglas encontradas que contienen el producto: 5
+2025-07-23 09:04:56,735 - app - INFO - Recomendaciones generadas para Reloj de Escritorio: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:05:01,662 - app - INFO - Solicitud de recomendación para el producto: Bolígrafo Espacial Anti-Gravedad
+2025-07-23 09:05:01,663 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 09:05:01,663 - app - INFO - Recomendaciones generadas para Bolígrafo Espacial Anti-Gravedad: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:06:01,244 - app - INFO - Solicitud de recomendación para el producto: Lámpara Elegante
+2025-07-23 09:06:01,245 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 09:06:01,245 - app - INFO - Recomendaciones generadas para Lámpara Elegante: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:06:25,571 - app - INFO - Solicitud de recomendación para el producto: Conejo de Pascua MDF color rosa
+2025-07-23 09:06:25,572 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 09:06:25,572 - app - INFO - Recomendaciones generadas para Conejo de Pascua MDF color rosa: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:06:50,531 - app - INFO - Solicitud de recomendación para el producto: Playera STYLE and TENDENCIA Twins Horses
+2025-07-23 09:06:50,532 - app - INFO - Reglas encontradas que contienen el producto: 0
+2025-07-23 09:06:50,533 - app - INFO - No se encontraron reglas para el producto: Playera STYLE and TENDENCIA Twins Horses
+2025-07-23 09:06:59,877 - app - INFO - Solicitud de recomendación para el producto: Super vivid led neon Pink Heart
+2025-07-23 09:06:59,878 - app - INFO - Reglas encontradas que contienen el producto: 5
+2025-07-23 09:06:59,878 - app - INFO - Recomendaciones generadas para Super vivid led neon Pink Heart: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:07:10,508 - app - INFO - Solicitud de recomendación para el producto: Playera STYLE and TENDENCIA Ave
+2025-07-23 09:07:10,509 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 09:07:10,509 - app - INFO - Recomendaciones generadas para Playera STYLE and TENDENCIA Ave: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:07:21,997 - app - INFO - Solicitud de recomendación para el producto: Diseño e Impresión de Tarjetas de Presentación
+2025-07-23 09:07:21,998 - app - INFO - Reglas encontradas que contienen el producto: 5
+2025-07-23 09:07:21,999 - app - INFO - Recomendaciones generadas para Diseño e Impresión de Tarjetas de Presentación: ['Taza de Porcelana', 'USB Personalizado']
+2025-07-23 09:08:17,576 - app - INFO - Solicitud de recomendación para el producto: Diseño e Impresión de Tarjetas de Presentación
+2025-07-23 09:08:17,577 - app - INFO - Reglas encontradas que contienen el producto: 5
+2025-07-23 09:08:17,579 - app - INFO - Recomendaciones generadas para Diseño e Impresión de Tarjetas de Presentación: ['Taza de Porcelana', 'USB Personalizado']
