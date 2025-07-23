@@ -13,14 +13,11 @@ def home():
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
-    # Obtener el producto ingresado por el usuario
     product = request.form['product']
-    
-    # Filtrar reglas que contengan el producto en los antecedentes
     recommendations = rules[rules['antecedents'].apply(lambda x: product in x)]['consequents'].tolist()
-    recommendations = [list(rec) for rec in recommendations]
-    
-    return render_template('index.html', recommendations=recommendations, product=product)
+    # Convertir a una lista plana y eliminar duplicados
+    flat_recommendations = list(set([item for sublist in recommendations for item in sublist]))
+    return render_template('index.html', recommendations=flat_recommendations, product=product)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
