@@ -56,3 +56,9 @@ werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not at
 2025-07-23 07:52:22,430 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
 2025-07-23 07:52:22,450 - app - INFO - Reglas encontradas que contienen el producto: 2
 2025-07-23 07:52:22,451 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['USB Personalizado', 'Taza de Porcelana']
+2025-07-23 08:28:32,832 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
+2025-07-23 08:28:32,904 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 08:28:32,908 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['USB Personalizado', 'Taza de Porcelana']
+2025-07-23 08:31:10,680 - app - INFO - Solicitud de recomendación para el producto: Playera Personalizada
+2025-07-23 08:31:10,692 - app - INFO - Reglas encontradas que contienen el producto: 2
+2025-07-23 08:31:10,693 - app - INFO - Recomendaciones generadas para Playera Personalizada: ['USB Personalizado', 'Taza de Porcelana']
