@@ -11,49 +11,95 @@
         }
         h1 {
             color: #6b0f1a;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         textarea {
             width: 100%;
-            height: 60px;
-            margin-bottom: 10px;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
         }
         .boton {
             background-color: #6b0f1a;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .boton:hover {
+            background-color: #8a1423;
         }
         .resultado {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e4e4e4;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f0f0;
             border-radius: 5px;
+            border-left: 4px solid #6b0f1a;
+        }
+        .error {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        li:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
-    <h1>Sistema Recomendador de Productos</h1>
+    <div class="container">
+        <h1>Sistema Recomendador de Productos</h1>
+        
+        {% if error %}
+            <div class="error">
+                <strong>Error:</strong> {{ error }}
+            </div>
+        {% endif %}
 
-    <form method="post">
-        <label for="productos">Ingresa los productos separados por coma (ej: taza, libreta, pluma):</label><br>
-        <textarea name="productos" required>{{ ', '.join(productos) }}</textarea><br>
-        <button class="boton" type="submit">Obtener Recomendaciones</button>
-    </form>
+        <form method="post">
+            <label for="productos"><strong>Ingresa los productos separados por comas:</strong></label><br>
+            <textarea name="productos" placeholder="Ejemplo: taza, libreta, pluma" required>{{ ', '.join(productos) if productos else '' }}</textarea><br>
+            <button class="boton" type="submit">Obtener Recomendaciones</button>
+        </form>
 
-    {% if recomendaciones %}
-        <div class="resultado">
-            <h3>Productos recomendados:</h3>
-            <ul>
-                {% for item in recomendaciones %}
-                    <li>{{ item }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% elif productos %}
-        <div class="resultado">
-            <p>No se encontraron recomendaciones para los productos ingresados.</p>
-        </div>
-    {% endif %}
+        {% if recomendaciones %}
+            <div class="resultado">
+                <h3>Productos recomendados:</h3>
+                <ul>
+                    {% for item in recomendaciones %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% elif productos and not error %}
+            <div class="resultado">
+                <p>No se encontraron recomendaciones para los productos ingresados.</p>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
