@@ -241,3 +241,15 @@ werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not at
 2025-07-23 10:50:09,157 - app - INFO - Reglas encontradas para product ['Playera Premium']: 0
 2025-07-23 10:50:09,157 - app - INFO - No se encontraron recomendaciones para product: ['Playera Premium']
 2025-07-23 10:50:09,158 - app - INFO - Recomendaciones generadas: {'Taza de Porcelana', 'USB Personalizado'}
+2025-07-23 11:53:19,918 - app - INFO - Modelo de reglas de asociación cargado correctamente
+2025-07-23 11:53:19,920 - app - INFO - Número de reglas cargadas: 244
+2025-07-23 11:53:19,922 - app - INFO - Iniciando la aplicación Flask
+2025-07-23 11:53:21,082 - app - INFO - Modelo de reglas de asociación cargado correctamente
+2025-07-23 11:53:21,082 - app - INFO - Número de reglas cargadas: 244
+2025-07-23 11:53:21,084 - app - INFO - Iniciando la aplicación Flask
+2025-07-23 23:45:10,361 - app - INFO - Modelo de reglas de asociación cargado correctamente
+2025-07-23 23:45:10,361 - app - INFO - Número de reglas cargadas: 52
+2025-07-23 23:45:10,362 - app - INFO - Iniciando la aplicación Flask
+2025-07-23 23:45:11,212 - app - INFO - Modelo de reglas de asociación cargado correctamente
+2025-07-23 23:45:11,212 - app - INFO - Número de reglas cargadas: 52
+2025-07-23 23:45:11,213 - app - INFO - Iniciando la aplicación Flask
